@@ -15,7 +15,7 @@ fn main() {
     for stream in listener.incoming() {
         let stream = stream.unwrap();
         // println!("Connection established")
-        pool.execute(||{
+        pool.execute(|| {
             handle_connection(stream);
         });
     }
@@ -30,7 +30,7 @@ fn handle_connection(mut stream: TcpStream) {
         .map(|result| result.unwrap())
         .take_while(|line| !line.is_empty())
         .collect();
-    println!("Request:{:#?}", http_request);
+    // println!("Request:{:#?}", http_request);
 
     let request_line = first_line_result.unwrap();
 
