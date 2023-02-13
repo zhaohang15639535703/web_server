@@ -1,3 +1,4 @@
+#![allow(unused)]
 use std::{
     sync::{mpsc, Arc, Mutex},
     thread,
